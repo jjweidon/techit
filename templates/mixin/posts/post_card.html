@@ -1,0 +1,40 @@
+{% load static %}
+
+<div class="card">
+    <div class="card__header">
+        <img src="http://via.placeholder.com/32x32" alt="프로필이미지"> <!--빈 이미지를 삽입하여 테스트-->
+        <a href="#"> <!--현재 페이지의 맨 위로 스크롤되는 빈 링크를 생성-->
+            <span class="card__user-name">likelion.official</span>
+        </a>
+    </div>
+    <div class="card__body">
+        <div>
+            <img class="card__image" src="http://via.placeholder.com/600x600" alt="카드이미지">
+        </div>
+        <div class="card__btn-group">
+            <div>
+                <img class="card__btn" src="{% static 'icons/favorite_outlined_black_36dp.svg' %}" alt="좋아요">
+                <img class="card__btn" src="{% static 'icons/mode_comment_outlined_black_36dp.svg' %}" alt="댓글">
+                <img class="card__btn" src="{% static 'icons/send_outlined_black_36dp.svg' %}" alt="공유하기">
+            </div>
+            <div>
+                <img class="card__btn" src="{% static 'icons/bookmark_outlined_black_36dp.svg' %}" alt="북마크">
+            </div>
+        </div>
+        <div class="card__content">
+            <span class="card__like-num">좋아요 00개</span>
+            <div class="card__main-text">
+                <p><span class="card__user-name">likelion.official  </span>{{"아무말이나 써야돼서 억지로 쓰고 있는 개발자 정재웅입니다. 잘 부탁드립니다. 모두 열공합시다."|truncatechars:35}} 더보기</p>
+            </div>
+            <div>
+                <p>댓글 0개 모두 보기</p>
+                <ul class="card__comment-group">
+                    <li>
+                        <p><span class="card__user-name">likelion.official</span>댓글 내용...</p>
+                    </li>
+                </ul>
+                <p class="card__created-at">2023년 7월 10일</p>
+            </div>
+        </div>
+    </div>
+</div>
