@@ -20,3 +20,6 @@ Notion: [나의 소중한 스터디 기록](https://swyg.link/9QTMr)
 
 >### 6주차
 <img src="./readme_img/6주차.png" width="380"/>
+
+>### 7주차
+<img src="./readme_img/7주차.png" width="380"/>

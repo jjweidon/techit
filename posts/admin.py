@@ -6,7 +6,7 @@ from .models import Post, Comment
 class CommnetInline(admin.TabularInline): # StackedInline은 세로 정렬
     model = Comment
     extra = 5
-    min_num = 3
+    min_num = 0
     max_num = 5
     verbose_name = '댓글'
     verbose_name_plural = '댓글' # 복수형
