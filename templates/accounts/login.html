@@ -1,0 +1,14 @@
+{% block title %}로그인{% endblock %}
+
+{% block content %}
+<h1>로그인</h1>
+<form action="" method="POST">
+    {% csrf_token %} <!--POST 시 필요-->
+    <div>
+        {{ form.as_p }}
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+{% endblock%}

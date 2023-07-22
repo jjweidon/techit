@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, JsonResponse, Http404
 from django.views.generic import ListView
-from .models import Post
 from django.contrib.auth.decorators import login_required
+
+from .forms import PostBaseForm, PostCreateForm, PostUpdateForm, PostDetailForm
+from .models import Post
 
 def index(request):
     post_list = Post.objects.all().order_by('-created_at') # Post 전체 데이터 조회
@@ -43,6 +45,23 @@ def post_create_view(request):
             content=content,
             writer=request.user,
         )
+        return redirect('index')
+
+def post_create_form_view(request):
+    if request.method == 'GET':
+        form = PostCreateForm
+        return render(request, 'posts/post_form2.html', {'form': form})
+    else:
+        form = PostCreateForm(request.POST, request.FILES)
+        print(form)
+        if form.is_valid(): # form 유효성 검사
+            Post.objects.create(
+                image=form.cleaned_data['image'],
+                content=form.cleaned_data['content'],
+                writer=request.user,
+            )
+        else:
+            redirect('posts:post-create')
         return redirect('index')
 
 @login_required

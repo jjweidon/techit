@@ -13,6 +13,7 @@ urlpatterns = [
     path('cbv/', class_view.as_view()), # 클래스 형식
 
     path('', index, name='index'),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
     path('posts/', include('posts.urls', namespace='posts')),
 
     path("__debug__/", include("debug_toolbar.urls")),

@@ -8,6 +8,16 @@
         <title>{% block title %}{% endblock %} | 라이언그램</title>
     </head>
     <body class="container">
+        {% if request.user.is_authenticated %}
+            <span>
+                로그인: {{ request.user.username }}
+            </span>
+            <a href="{% url 'accounts:logout' %}">로그아웃</a>
+        {% else %}
+            <a href="{% url 'accounts:login' %}">로그인</a>
+            <a href="{% url 'accounts:signup' %}">회원가입</a>
+        {% endif %}
+        
         <div>
             {% block content %}
             {% endblock %}
